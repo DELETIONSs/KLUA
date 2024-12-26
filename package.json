@@ -1,6 +1,6 @@
 {
   "name": "rlua",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Resistance's LUAU - A toolkit for Roblox Lua development",
   "main": "src/index.js",
   "scripts": {
@@ -19,7 +19,6 @@
     "rlua": "src/index.js"
   },
   "dependencies": {
-    "lua-formatter": "^0.1.0"
   },
   "devDependencies": {}
 }
