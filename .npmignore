@@ -1,0 +1,13 @@
+# Ignore test files and folders
+test/
+
+# Ignore configuration files (e.g., for local development)
+.env
+.vscode/
+
+# Ignore gitignore files and other local configurations
+.gitignore
+
+# Ignore build artifacts or temporary files
+dist/
+build/
