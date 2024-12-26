@@ -1,32 +1,30 @@
-const { formatLuaCode } = require('./formatter');
-const { obfuscateLuaCode } = require('./obfuscator');
+#!/usr/bin/env node
+
+const { exec } = require('child_process');
 const fs = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
 
-// Function to read the Lua file content
-const readLuaFile = (filePath) => {
-  return fs.readFileSync(filePath, 'utf-8');
-};
-
-// Command-line interface (CLI) handling
-const [,, command, filePath] = process.argv;
-
-if (!filePath) {
-  console.log("Please provide a Lua file path as the second argument.");
-  process.exit(1);
-}
-
-const luaCode = readLuaFile(filePath);
+// Example of basic CLI handling:
+const args = process.argv.slice(2);
+const command = args[0];
 
 switch (command) {
   case 'format':
-    const formattedCode = formatLuaCode(luaCode);
-    console.log("Formatted Lua Code:\n", formattedCode);
+    // Handle formatting logic here
+    const filePath = args[1];
+    console.log(`Formatting file: ${filePath}`);
+    // Call the Lua formatter or your own logic
     break;
+  
   case 'obfuscate':
-    const obfuscatedCode = obfuscateLuaCode(luaCode);
-    console.log("Obfuscated Lua Code:\n", obfuscatedCode);
+    // Handle obfuscation logic here
+    const fileToObfuscate = args[1];
+    console.log(`Obfuscating file: ${fileToObfuscate}`);
+    // Call your Lua obfuscation logic here
     break;
+
   default:
-    console.log("Unknown command. Use 'format' or 'obfuscate'.");
-    process.exit(1);
+    console.log('Unknown command');
+    break;
 }
